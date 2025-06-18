@@ -3,16 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/twitter.css" />
     <title>Document</title>
   </head>
   <body>
     <h1>Welcome : <%= user %></h1>
     <p>Followers : <%= userProfile.followers %></p>
     <p>Following : <%= userProfile.following %></p>
-    <% for (post of userProfile.posts) { %>
-    <img src="<%= post.image %>" alt="" />
-    <p>Likes : <%= post.likes %></p>
-    <p>Comments : <%= post.comments %></p>
-    <% } %>
+    <div class="container1">
+      <% for (post of userProfile.posts) { %>
+      <img src="<%= post.image %>" alt="" />
+      <p>Likes : <%= post.likes %></p>
+      <p>Comments : <%= post.comments %></p>
+      <% } %>
+    </div>
   </body>
 </html>

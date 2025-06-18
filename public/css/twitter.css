@@ -1,0 +1,13 @@
+body {
+  background-color: bisque;
+}
+
+img {
+  width: 300px;
+  height: 300px;
+}
+
+.container1 {
+  display: flex;
+  gap: 20px;
+}
