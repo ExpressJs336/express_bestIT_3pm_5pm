@@ -1,0 +1,30 @@
+<%- include("partials/header.ejs") %>
+
+<h1>Request Form :GET Method</h1>
+<form action="/register" method="GET">
+  <div>
+    <label for="userName"> User Name : </label>
+    <input type="text" id="userName" name="userName123" />
+    <br /><br />
+    <label for="password">Give Password : </label>
+    <input type="password" id="password" name="password123" />
+    <br /><br />
+    <button type="submit">Submit!</button>
+  </div>
+</form>
+<br /><br />
+<h1>Request Form : POST Method</h1>
+<form action="/register" method="POST">
+  <div>
+    <label for="userName"> User Name : </label>
+    <input type="text" id="userName" name="userName-gg" />
+    <br /><br />
+    <label for="password">Give Password : </label>
+    <input type="password" id="password" name="password-jj" />
+    <br /><br />
+    <button type="submit">Submit!</button>
+  </div>
+</form>
+<br /><br />
+
+<%- include("partials/footer.ejs")%>

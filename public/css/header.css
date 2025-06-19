@@ -1,0 +1,11 @@
+body {
+  background: bisque;
+  min-height: 95vh;
+}
+.header {
+  background-color: cyan;
+  height: 55px;
+  width: 100%;
+  border: 1px solid green;
+  text-align: center;
+}

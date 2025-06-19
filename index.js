@@ -4,8 +4,7 @@ const app = express();
 const port = 3000;
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/view"));
-app.use(express.static(path.join(__dirname, "public")))
-
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use((req, res, next) => {
   console.log("this is Middleware ");
@@ -70,6 +69,20 @@ app.get("/twitter/:user", (req, res) => {
   res.render("twitter.ejs", { user, userProfile });
 });
 
+app.get("/forms", (req, res) => {
+  res.render("form.ejs");
+});
+
+app.get("/register", (req, res) => {
+  const { userName123, password123 } = req.query;
+  console.log("user Name : ", userName123);
+  console.log("Password : ", password123);
+  res.send("<h1> this is a GET method </h1>");
+});
+
+app.post("/register", (req, res) => {
+  res.send("<h1> this is a POST method </h1>");
+});
 // Path Parameters
 app.get(/.*/, (req, res) => {
   res.send("Unknown Page !! please check the url!!");
