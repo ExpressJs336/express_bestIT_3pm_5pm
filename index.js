@@ -1,10 +1,13 @@
 const path = require("path");
 const express = require("express");
 const app = express();
+const bcrypt = require("bcrypt");
 const port = 3000;
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/view"));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use((req, res, next) => {
   console.log("this is Middleware ");
@@ -73,15 +76,17 @@ app.get("/forms", (req, res) => {
   res.render("form.ejs");
 });
 
-app.get("/register", (req, res) => {
+app.get("/register", async (req, res) => {
   const { userName123, password123 } = req.query;
-  console.log("user Name : ", userName123);
-  console.log("Password : ", password123);
-  res.send("<h1> this is a GET method </h1>");
+  const hashedPassword = await bcrypt.hash(password123, 10);
+  console.log("Password : ", hashedPassword);
+  res.render("dashboard.ejs", { userName123 });
 });
 
 app.post("/register", (req, res) => {
-  res.send("<h1> this is a POST method </h1>");
+  console.log("Req. Body : ", req.body);
+  const { userName, password } = req.body;
+  res.send(`<h1> this is a POST method : ${userName} </h1> `);
 });
 // Path Parameters
 app.get(/.*/, (req, res) => {
